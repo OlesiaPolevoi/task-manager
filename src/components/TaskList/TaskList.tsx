@@ -1,9 +1,9 @@
 import { Task } from "./Task/Task";
-import "./TaskList.scss";
+import classes from "./TaskList.module.scss";
 
 export const TaskList = () => {
   return (
-    <div className="todo-container">
+    <div className={classes.container}>
       <ul className="todo-list failed">
         <Task />
       </ul>
