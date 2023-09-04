@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.scss";
-import { TaskManagerList } from "./pages/TaskManagerList";
+import "./assets/scss/normalize.scss";
+import "./assets/scss/style.scss";
+import { TaskManagerPage } from "./pages/TaskMangerPage";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <TaskManagerList />
+    <TaskManagerPage />
   </React.StrictMode>
 );
