@@ -4,17 +4,17 @@
 
 Experience the Task Manager in action: https://olesiapolevoi.github.io/task-manager/
 
-## OVERVIEW
+OVERVIEW
 
 The Task Manager React application simplifies daily task management with a user-friendly interface. Built using React and TypeScript, it streamlines the process of creating, completing, and organizing your tasks.
 
-## FEATURES
+FEATURES
 
 Effortlessly create, complete, and delete tasks
 Intuitive design for easy task management
 Responsive layout for seamless use on various devices and screen sizes
 
-## GETTING STARTED
+GETTING STARTED
 
 To access the project, follow these steps:
 
@@ -22,12 +22,16 @@ Open your preferred web browser.
 Visit the Task Manager website: https://olesiapolevoi.github.io/task-manager/
 Begin managing your tasks with ease.
 
-## Technologies Used:
+Technologies Used:
 
 React
+
 JavaScript
+
 TypeScript
+
 HTML/CSS
+
 GitHub
 
 Feel free to use this app to stay organized and enhance your daily productivity. Add, complete, and manage tasks efficiently throughout the day!
