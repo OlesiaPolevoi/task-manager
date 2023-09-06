@@ -1,22 +1,57 @@
 import { Task } from "./Task/Task";
 import classes from "./TaskList.module.scss";
+import { TaskItem } from "../../types/task";
 
-export const TaskList = () => {
+export const TaskList = (props: {
+  tasks: TaskItem[];
+  deleteTask: Function;
+  updateTaskStatus: Function;
+}) => {
+  const unfinishedTasks = () => {
+    return props.tasks
+      .filter((task) => {
+        return !task.isDone;
+      })
+      .map((el) => {
+        return (
+          <Task
+            task={el}
+            key={el.id}
+            updateTaskStatus={props.updateTaskStatus}
+            deleteTask={props.deleteTask}
+          />
+        );
+      });
+  };
+  const completedTasks = () => {
+    return props.tasks
+      .filter((task) => {
+        return task.isDone;
+      })
+      .map((el) => {
+        return (
+          <Task
+            task={el}
+            key={el.id}
+            updateTaskStatus={props.updateTaskStatus}
+            deleteTask={props.deleteTask}
+          />
+        );
+      });
+  };
+  console.log(props?.tasks?.length, "tsks");
+
   return (
     <div className={classes.container}>
-      <ul className="todo-list failed">
-        <Task />
+      <ul className={`${classes.taskList} ${classes.failed}`}>
+        {unfinishedTasks()}
       </ul>
-      <ul className="todo-list completed">
-        <Task />
-        {/* <li className="todo-list-item__wrapper">
-          <span>Very inmportant task</span>
-          <div className="todo-list-item__buttons">
-            <button className="btn-trash"></button>
-            <button className="btn-uncheck"></button>
-          </div>
-        </li> */}
+      <ul className={`${classes.taskList} ${classes.completed}`}>
+        {completedTasks()}
       </ul>
+      {props?.tasks?.length === 0 && (
+        <div className={classes.empty}>There are currently no tasks</div>
+      )}
     </div>
   );
 };
