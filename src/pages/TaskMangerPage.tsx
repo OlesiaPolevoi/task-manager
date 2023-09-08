@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Form } from "../components/Form/Form";
-import { Header } from "../components/Header/Header";
 import { TaskList } from "../components/TaskList/TaskList";
 import { TaskItem } from "../types/task";
 
@@ -35,7 +34,6 @@ export const TaskManagerPage = () => {
 
   return (
     <>
-      <Header />
       <Form createNewTask={createNewTask} />
       <TaskList
         tasks={tasks}
