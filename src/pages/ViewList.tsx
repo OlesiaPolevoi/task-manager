@@ -3,10 +3,10 @@ import { ListItem } from "../components/ListItem/ListItem";
 
 //NOTE - use similar pattern throughout components
 
-interface HomePageProps {
+interface ViewListProps {
   tasks: TaskItem[];
 }
-export const HomePage = ({ tasks }: HomePageProps) => {
+export const ViewList = ({ tasks }: ViewListProps) => {
   return (
     <div className="container">
       {tasks.map((el: TaskItem) => {

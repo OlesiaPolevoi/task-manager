@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { TaskItem } from "../types/task";
 
-interface ItemDescriptionProps {
+interface ViewListItemProps {
   tasks: TaskItem[];
 }
 
-export const ItemDescription = ({ tasks }: ItemDescriptionProps) => {
+export const ViewListItem = ({ tasks }: ViewListItemProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [task, setTask] = useState<TaskItem>();

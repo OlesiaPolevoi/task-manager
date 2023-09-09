@@ -39,7 +39,6 @@ export const TaskList = (props: {
         );
       });
   };
-  console.log(props?.tasks?.length, "tsks");
 
   return (
     <div className={classes.container}>
