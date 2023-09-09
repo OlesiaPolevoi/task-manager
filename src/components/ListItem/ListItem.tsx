@@ -1,16 +1,16 @@
+import { Link } from "react-router-dom";
 import { TaskItem } from "../../types/task";
 import classes from "./ListItem.module.scss";
 
 export const ListItem = ({ task }: { task: TaskItem }) => {
   return (
-    <a
+    <Link
+      to={`/list/${task.id}`}
       className={`${classes.link} ${
         task.isDone ? classes.done : classes.notDone
       }`}
-      target="_blank"
-      href={`/task-manager/list/${task.id}`}
     >
       {task.text}
-    </a>
+    </Link>
   );
 };
