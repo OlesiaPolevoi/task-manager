@@ -26,6 +26,7 @@ const router = createBrowserRouter(
       errorElement: <NotFound />,
       children: [
         { path: "/", element: <HomePage tasks={tasks} /> },
+
         {
           path: "/task-manager",
           element: <TaskManagerPage />,
@@ -38,7 +39,7 @@ const router = createBrowserRouter(
     },
     { path: "*", element: <NotFound /> },
   ],
-  { basename: "/app/" }
+  { basename: "/task-manager" }
 );
 
 const root = ReactDOM.createRoot(

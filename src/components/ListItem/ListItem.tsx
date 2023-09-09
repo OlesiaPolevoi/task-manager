@@ -8,7 +8,7 @@ export const ListItem = ({ task }: { task: TaskItem }) => {
         task.isDone ? classes.done : classes.notDone
       }`}
       target="_blank"
-      href={`/app/list/${task.id}`}
+      href={`/task-manager/list/${task.id}`}
     >
       {task.text}
     </a>
