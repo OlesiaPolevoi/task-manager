@@ -1,15 +1,14 @@
 import { TaskItem } from "../types/task";
 import { ListItem } from "../components/ListItem/ListItem";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
-//NOTE - use similar pattern throughout components
+export const ViewList = () => {
+  const taskList = useSelector((state: RootState) => state.taskList.tasks);
 
-interface ViewListProps {
-  tasks: TaskItem[];
-}
-export const ViewList = ({ tasks }: ViewListProps) => {
   return (
     <div className="container">
-      {tasks.map((el: TaskItem) => {
+      {taskList.map((el: TaskItem) => {
         return <ListItem key={el.id} task={el} />;
       })}
     </div>

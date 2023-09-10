@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { TaskItem } from "../types/task";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
-interface ViewListItemProps {
-  tasks: TaskItem[];
-}
+export const ViewListItem = () => {
+  const taskList = useSelector((state: RootState) => state.taskList.tasks);
 
-export const ViewListItem = ({ tasks }: ViewListItemProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [task, setTask] = useState<TaskItem>();
 
   useEffect(() => {
-    const searchTask = tasks.find((el) => {
+    const searchTask = taskList.find((el) => {
       return el.id === Number(id);
     });
 
@@ -21,7 +21,7 @@ export const ViewListItem = ({ tasks }: ViewListItemProps) => {
     } else {
       navigate("./404");
     }
-  }, [id, tasks, navigate]);
+  }, [id, taskList, navigate]);
 
   return (
     <div className="container">

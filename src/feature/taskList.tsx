@@ -9,12 +9,12 @@ export interface TaskState {
 const initialState: TaskState = {
   tasks: [],
 };
-//taskSlice
+
 export const taskReducer = createSlice({
   name: "taskList",
   initialState,
   reducers: {
-    createAction: (state, action) => {
+    createAction: (state, action: PayloadAction<string>) => {
       const newTask: TaskItem = {
         id: state.tasks.length,
         text: action.payload,
@@ -22,8 +22,21 @@ export const taskReducer = createSlice({
       };
       state.tasks = [...state.tasks, newTask];
     },
-    updateAction: (state) => {},
-    deleteAction: (state, action: PayloadAction<number>) => {},
+    updateAction: (state, action: PayloadAction<TaskItem>) => {
+      const updatedTasks = state.tasks.map((el) => {
+        if (el.id === action.payload.id) {
+          el.isDone = !el.isDone;
+        }
+        return el;
+      });
+      state.tasks = updatedTasks;
+    },
+    deleteAction: (state, action: PayloadAction<number>) => {
+      const filteredTasks = state.tasks.filter((el) => {
+        return el.id !== action.payload;
+      });
+      state.tasks = filteredTasks;
+    },
   },
 });
 
