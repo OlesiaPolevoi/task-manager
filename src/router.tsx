@@ -22,27 +22,3 @@ export const router = createBrowserRouter(
   ],
   { basename: "/task-manager" }
 );
-
-// export const router = createBrowserRouter(
-//   [
-//     {
-//       path: "/",
-//       element: <Layout />,
-//       errorElement: <NotFound />,
-//       children: [
-//         { path: "/", element: <ViewList tasks={tasks} /> },
-
-//         {
-//           path: "/task-manager",
-//           element: <TaskManagerListPage />,
-//         },
-//         {
-//           path: "/list/:id",
-//           element: <ViewListItem tasks={tasks} />,
-//         },
-//       ],
-//     },
-//     { path: "*", element: <NotFound /> },
-//   ],
-//   { basename: "/task-manager" }
-// );
