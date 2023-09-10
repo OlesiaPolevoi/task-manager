@@ -4,7 +4,9 @@ import { useState } from "react";
 export const Form = (props: { createNewTask: Function }) => {
   const [text, setText] = useState<string>("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+
     if (text) {
       props.createNewTask(text);
       setText("");
