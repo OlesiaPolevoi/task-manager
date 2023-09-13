@@ -1,5 +1,12 @@
-import classes from "./Form.module.scss";
 import { useState } from "react";
+import {
+  FormControl,
+  FormBlock,
+  FormLabel,
+  FormWrapper,
+  FormField,
+} from "./Form.styled";
+import plusIcon from "../../assets/images/plus.png";
 
 export const Form = (props: { createNewTask: Function }) => {
   const [text, setText] = useState<string>("");
@@ -14,20 +21,19 @@ export const Form = (props: { createNewTask: Function }) => {
   };
 
   return (
-    <div className={classes.formWrapper}>
-      <form action="#" onSubmit={handleSubmit}>
-        <label>
-          <input
+    <FormWrapper>
+      <FormBlock action="#" onSubmit={handleSubmit}>
+        <FormLabel>
+          <FormField
             value={text}
-            className={classes.input}
             type="text"
             onChange={(e) => {
               setText(e.target.value);
             }}
           />
-          <button className={classes.button}></button>
-        </label>
-      </form>
-    </div>
+          <FormControl icon={plusIcon} />
+        </FormLabel>
+      </FormBlock>
+    </FormWrapper>
   );
 };

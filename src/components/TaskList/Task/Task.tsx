@@ -1,5 +1,13 @@
-import classes from "./Task.module.scss";
 import { TaskItem } from "../../../types/task";
+import {
+  TaskControl,
+  TaskControls,
+  TaskText,
+  TaskWrapper,
+} from "./Task.styled";
+import checkIcon from "../../../assets/images/check.png";
+import uncheckIcon from "../../../assets/images/uncheck.png";
+import trashIcon from "../../../assets/images/trash.png";
 
 export const Task = (props: {
   task: TaskItem;
@@ -7,24 +15,22 @@ export const Task = (props: {
   updateTaskStatus: Function;
 }) => {
   return (
-    <li className={classes.wrapper}>
-      <span>{props.task.text}</span>
-      <div className={classes.taskButtons}>
-        <button
-          className={`${classes.btnTrash} ${classes.button}`}
+    <TaskWrapper>
+      <TaskText>{props.task.text}</TaskText>
+      <TaskControls>
+        <TaskControl
+          icon={trashIcon}
           onClick={() => {
             props.deleteTask(props.task.id);
           }}
-        ></button>
-        <button
-          className={`${
-            props.task.isDone ? classes.btnCheck : classes.btnUncheck
-          } ${classes.button}`}
+        ></TaskControl>
+        <TaskControl
+          icon={props.task.isDone ? checkIcon : uncheckIcon}
           onClick={() => {
             props.updateTaskStatus(props.task);
           }}
-        ></button>
-      </div>
-    </li>
+        ></TaskControl>
+      </TaskControls>
+    </TaskWrapper>
   );
 };
