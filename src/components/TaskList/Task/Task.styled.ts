@@ -1,4 +1,6 @@
-.wrapper {
+import styled from "styled-components";
+
+export const TaskWrapper = styled.li`
   width: 100%;
   min-height: 50px;
   font-size: 14px;
@@ -16,9 +18,15 @@
   margin: 0 0 10px 0;
   padding: 14px;
   word-break: break-word;
-}
 
-.taskButtons {
+  &:last-child {
+    margin: 0;
+  }
+`;
+
+export const TaskText = styled.span``;
+
+export const TaskControls = styled.div`
   width: 100px;
   height: 50px;
   display: flex;
@@ -26,9 +34,9 @@
   position: absolute;
   top: 0;
   right: 0;
-}
+`;
 
-.button {
+export const TaskControl = styled.button<{ icon: string }>`
   width: 50px;
   height: 50px;
   background-color: transparent;
@@ -39,16 +47,16 @@
   box-shadow: none;
   outline: none;
   cursor: pointer;
-}
+  background-image: url(${(props) => props.icon});
 
-.btnTrash {
-  background-image: url(../../../assets/images/trash.png);
-}
+  &:last-of-type:before {
+    content: "";
+    width: 1px;
+    height: 30px;
+    background: #edf0f1;
 
-.btnCheck {
-  background-image: url(../../../assets/images/check.png);
-}
-
-.btnUncheck {
-  background-image: url(../../../assets/images/uncheck.png);
-}
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+`;
